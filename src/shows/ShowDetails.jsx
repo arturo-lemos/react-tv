@@ -1,12 +1,10 @@
 import "./shows.css";
 
 /** Allows users to browse through the episodes of the given show */
-export default function ShowDetails({ tvShow }) {
-  const [ShowDetails] = useState();
-  if (!selectedShow) {
+export default function ShowDetails({ show }) {
+  if (!show) {
     return (
       <section>
-        <h2>Show Details</h2>
         <p>Please select a show</p>
       </section>
     );
@@ -14,10 +12,14 @@ export default function ShowDetails({ tvShow }) {
 
   return (
     <div className="show-details">
-      <h2>Episode List</h2>
-      <p></p>
-      <h2>Show Details</h2>
-      <p>{EpisodeDetails.description}</p>
+      <h2>{show.name}</h2>
+      <ul>
+        {show.episodes.map((episode) => (
+          <li key={episode.number}>
+            Episode {episode.number}: {episode.title}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

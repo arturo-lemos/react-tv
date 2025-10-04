@@ -8,9 +8,18 @@ import { tvShows } from "./shows/data";
 import EpisodeList from "./episodes/EpisodeList";
 import EpisodeDetails from "./episodes/EpisodeDetails";
 
+import NavBar from "./NavBar";
+
 export default function App() {
-  const [episodeList] = useState(tvShows);
   const [selectedEpisode, setSelectedEpisode] = useState();
+
+  const [shows] = useState(tvShows);
+  const [selectedShow, setSelectedShow] = useState(shows[0]);
+
+  function handleShowSelection(show) {
+    setSelectedShow(show);
+    setSelectedEpisode(undefined);
+  }
 
   return (
     <>
@@ -18,13 +27,18 @@ export default function App() {
         <p>React TV</p>
       </header>
       <main>
+        <NavBar
+          shows={shows}
+          selectedShow={selectedShow}
+          setSelectedShow={handleShowSelection}
+        />
         <EpisodeList
-          name={tvShows[0].name}
-          episodes={tvShows[0].episodes}
+          name={selectedShow.name}
+          episodes={selectedShow.episodes}
           selectedEpisode={selectedEpisode}
           setSelectedEpisode={setSelectedEpisode}
         />
-        <EpisodeDetails selectedEpisode={selectedEpisode} />
+        <EpisodeDetails episode={selectedEpisode} />
       </main>
     </>
   );
