@@ -3,6 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+.show-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
 
 html {
   color: white;
@@ -10,7 +17,7 @@ html {
 }
 
 body {
-  background: #111;
+  background: #121212;
 }
 
 #root {
@@ -25,4 +32,28 @@ header {
 
 button {
   padding: 0.25rem 0.5rem;
+}
+
+main {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+.navbar-item.active .navbar-button {
+  background-color: purple;
+  border-radius: 4px;
+}
+
+.show-list li:not(:last-child)::after {
+  content: " |";
+  color: #ccc;
+  margin-left: 0.5rem;
 }

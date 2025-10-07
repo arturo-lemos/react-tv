@@ -25,13 +25,13 @@ export default function App() {
     <>
       <header>
         <p>React TV</p>
-      </header>
-      <main>
         <NavBar
           shows={shows}
           selectedShow={selectedShow}
           setSelectedShow={handleShowSelection}
         />
+      </header>
+      <main>
         <EpisodeList
           name={selectedShow.name}
           episodes={selectedShow.episodes}

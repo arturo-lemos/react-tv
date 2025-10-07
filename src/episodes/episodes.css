@@ -1,5 +1,6 @@
 .episodes ol {
   list-style: none;
+  min-width: 15rem;
 }
 
 .episodes li {
@@ -8,16 +9,17 @@
 
 .episodes li:hover,
 .episodes li.selected {
-  background: #333;
+  background: purple;
   cursor: pointer;
 }
 
 .episodes li:not(:last-child) {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #ccc;
 }
 
 .episode-details {
   display: flex;
   flex-direction: column;
-  gap: 1ch;
+  gap: 0.5ch;
+  padding-left: 2rem;
 }
